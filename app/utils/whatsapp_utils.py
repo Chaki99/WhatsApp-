@@ -5,7 +5,7 @@ import requests
 
 # from app.services.openai_service import generate_response
 import re
-
+from app.services.openai_service import generate_response
 
 def log_http_response(response):
     logging.info(f"Status: {response.status_code}")
@@ -23,7 +23,6 @@ def get_text_message_input(recipient, text):
             "text": {"preview_url": False, "body": text},
         }
     )
-
 
 def send_message(data):
     headers = {
@@ -76,7 +75,6 @@ def process_whatsapp_message(body):
     message = body["entry"][0]["changes"][0]["value"]["messages"][0]
     message_body = message["text"]["body"]
 
-   
     # OpenAI Integration
     response = generate_response(message_body, wa_id, name)
     response = process_text_for_whatsapp(response)
