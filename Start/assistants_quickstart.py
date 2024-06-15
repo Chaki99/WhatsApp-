@@ -33,7 +33,7 @@ def create_assistant(file):
         name="Gohon assistant",
         instructions="You're a helpful WhatsApp assistant that helps fans of the indie pop-rock band Gohón learn more about the band and upcoming events. Use your knowledge base to best respond to customer queries. Be friendly and funny.",
         tools=[{"type": "retrieval"}],
-        model="gpt-4-1106-preview",
+        model="gpt-3.5-turbo-16k",
         file_ids=[file.id],
     )
     return assistant
