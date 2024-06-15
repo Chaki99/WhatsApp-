@@ -89,8 +89,6 @@ response = send_message(data)
 # Send a custom text WhatsApp message asynchronously
 # --------------------------------------------------------------
 
-
-# Does not work with Jupyter!
 async def send_message(data):
     headers = {
         "Content-type": "application/json",
@@ -126,6 +124,10 @@ def get_text_message_input(recipient, text):
     )
 
 
+def generate_response(message_body, wa_id, name):
+    # Check if there is already a thread_id for the wa_id
+    thread_id = check_if_thread_exists(wa_id)
+    
 data = get_text_message_input(
     recipient=RECIPIENT_WAID, text="Hello, this is a test message."
 )
