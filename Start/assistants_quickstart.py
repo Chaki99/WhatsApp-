@@ -112,3 +112,4 @@ def run_assistant(thread):
     return new_message
 
 
+new_message=generate_response("Which countries will you visit on your tour?","+359", "Chuckie")
